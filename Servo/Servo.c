@@ -3,7 +3,7 @@
 static TIM_HandleTypeDef *servo_htim;
 
 /* ===== Khoi tao servo =====
-   htim: TIM su dung (TIM4)
+   
 */
 void Servo_Init(TIM_HandleTypeDef *htim)
 {

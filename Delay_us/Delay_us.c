@@ -14,8 +14,8 @@ void Delay_Init(TIM_HandleTypeDef *htim)
 //----------------------------------------------------------
 void delay_us(uint16_t us)
 {
-    if (delay_htim == NULL) return;           // tránh treo n?u quên init
-    __HAL_TIM_SET_COUNTER(delay_htim, 0);     // reset counter
+    if (delay_htim == NULL) return;           
+    __HAL_TIM_SET_COUNTER(delay_htim, 0);     
     while (__HAL_TIM_GET_COUNTER(delay_htim) < us);
 }
 

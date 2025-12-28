@@ -20,7 +20,5 @@ mini_xe_chua_chay/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
   ..\RobotLogic\RobotLogic.h ..\Motor\Motor.h ..\Flame\Flame.h \
-  ..\Hcsr04\Hcsr04.h ..\Servo\servo.h ..\Delay_us\delay_us.h \
-  ..\Test_uart\test_uart.h
+  ..\Hcsr04\Hcsr04.h ..\Servo\servo.h ..\Delay_us\delay_us.h

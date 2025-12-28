@@ -2,9 +2,9 @@
 #include "delay_us.h"
 
 #define TRIG_PORT GPIOB
-#define TRIG_PIN  GPIO_PIN_11   // d?i t? PB1 -> PB11
+#define TRIG_PIN  GPIO_PIN_11   
 #define ECHO_PORT GPIOB
-#define ECHO_PIN  GPIO_PIN_10   // gi? PB10
+#define ECHO_PIN  GPIO_PIN_10   
 
 //----------------------------------------------------------
 void HCSR04_Init(void)
@@ -44,11 +44,11 @@ static void HCSR04_Trigger(void)
 //----------------------------------------------------------
 float HCSR04_Read(void)
 {
-    uint32_t timeout = 60000;  // toi da 60ms (~10m)
+    uint32_t timeout = 60000;  
     uint32_t start = 0, stop = 0;
     float distance = -1.0f;
 
-    (void)start; // gi? bi?n start nhu b?n g?c (không dùng)
+    (void)start; 
 
     HCSR04_Trigger();
 

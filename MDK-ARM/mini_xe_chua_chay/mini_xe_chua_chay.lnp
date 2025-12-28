@@ -16,16 +16,13 @@
 "mini_xe_chua_chay\stm32f1xx_hal_flash.o"
 "mini_xe_chua_chay\stm32f1xx_hal_flash_ex.o"
 "mini_xe_chua_chay\stm32f1xx_hal_exti.o"
-"mini_xe_chua_chay\stm32f1xx_hal_uart.o"
 "mini_xe_chua_chay\system_stm32f1xx.o"
 "mini_xe_chua_chay\motor.o"
 "mini_xe_chua_chay\flame.o"
 "mini_xe_chua_chay\hcsr04.o"
 "mini_xe_chua_chay\servo.o"
-"mini_xe_chua_chay\pump.o"
 "mini_xe_chua_chay\robotlogic.o"
 "mini_xe_chua_chay\delay_us.o"
-"mini_xe_chua_chay\test_uart.o"
 --strict --scatter "mini_xe_chua_chay\mini_xe_chua_chay.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

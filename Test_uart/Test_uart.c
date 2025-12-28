@@ -22,13 +22,11 @@ static void uart_send(const char *s)
     HAL_UART_Transmit(g_huart, (uint8_t*)s, (uint16_t)strlen(s), HAL_MAX_DELAY);
 }
 
-// doc 1 lan: tra ve 1 neu co lua (pin = 0), nguoc lai 0
 static uint8_t flame_read_once(void)
 {
     return (HAL_GPIO_ReadPin(FLAME_PORT, FLAME_PIN) == GPIO_PIN_RESET) ? 1 : 0;
 }
 
-// loc nhieu: doc 5 lan lay da so (3/5)
 static uint8_t flame_read_stable(void)
 {
     uint8_t cnt = 0;
@@ -53,15 +51,13 @@ void TestUART_Task(uint32_t period_ms)
     g_last = now;
 
     uint8_t fire = flame_read_stable();
-    float dis = HCSR04_Read(); // cm, neu loi thuong tra -1
+    float dis = HCSR04_Read(); 
 
     char buf[80];
 
-    // dong 1: lua
     snprintf(buf, sizeof(buf), "co lua : %u\r\n", (unsigned)fire);
     uart_send(buf);
 
-    // dong 2: khoang cach
     if (dis < 0.0f)
         snprintf(buf, sizeof(buf), "dis: ERR\r\n\r\n");
     else

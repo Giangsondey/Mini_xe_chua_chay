@@ -1,8 +1,8 @@
 #include "motor.h"
 #include "main.h"
-#include "servo.h"   // gi? nguyên nhu mày yêu c?u (dù file này không dùng tr?c ti?p)
+#include "servo.h"   
 
-// ==== PIN MAP (d?i theo file m?i c?a mày) ====
+
 #define IN1_PIN  GPIO_PIN_2
 #define IN2_PIN  GPIO_PIN_3
 #define IN3_PIN  GPIO_PIN_4
