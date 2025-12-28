@@ -6,30 +6,27 @@
 #define ECHO_PORT GPIOB
 #define ECHO_PIN  GPIO_PIN_10   
 
-//----------------------------------------------------------
 void HCSR04_Init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
-    // Chân TRIG: Output push-pull
+
     GPIO_InitStruct.Pin = TRIG_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(TRIG_PORT, &GPIO_InitStruct);
 
-    // Chân ECHO: Input floating
+
     GPIO_InitStruct.Pin = ECHO_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(ECHO_PORT, &GPIO_InitStruct);
 }
 
-//----------------------------------------------------------
-// Gui xung Trigger 10 µs
-//----------------------------------------------------------
+
 static void HCSR04_Trigger(void)
 {
     HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);
@@ -39,9 +36,6 @@ static void HCSR04_Trigger(void)
     HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);
 }
 
-//----------------------------------------------------------
-// Ðo khoang cách (cm)
-//----------------------------------------------------------
 float HCSR04_Read(void)
 {
     uint32_t timeout = 60000;  
@@ -52,17 +46,14 @@ float HCSR04_Read(void)
 
     HCSR04_Trigger();
 
-    // --- Cho Echo lên muc cao ---
     while (HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN) == GPIO_PIN_RESET)
     {
         if (--timeout == 0)
             return -1.0f;
     }
 
-    // Reset counter
     __HAL_TIM_SET_COUNTER(Delay_GetHandle(), 0);
 
-    // --- Cho Echo xuong thap ---
     timeout = 60000;
     while (HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN) == GPIO_PIN_SET)
     {
@@ -74,8 +65,7 @@ float HCSR04_Read(void)
 
     if (stop > 60000) stop = 60000;
 
-    // --- Tính khoang cách ---
-    distance = (float)stop / 58.0f;  // cm
+    distance = (float)stop / 58.0f;  
 
     if (distance > 400.0f) distance = 400.0f;
 

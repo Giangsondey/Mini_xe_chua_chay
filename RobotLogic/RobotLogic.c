@@ -264,3 +264,4 @@ void Xe_TranhVat_UuTienLua(void)
     Motor_Forward(TD_DI_THANG);
     HAL_Delay(60);
 }
+// ngày 28/12/5h01p
