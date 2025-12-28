@@ -101,10 +101,10 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-	Delay_Init(&htim3);     // delay_us + HCSR04 d�ng TIM3
-Motor_Init(&htim2);     // motor PWM TIM2 CH1/CH2
-Servo_Init(&htim4);     // n?u servo.c c� h�m n�y (xem note b�n du?i)
-HCSR04_Init();          // trig/echo
+	Delay_Init(&htim3);
+Motor_Init(&htim2);    
+Servo_Init(&htim4);    
+HCSR04_Init();        
 Flame_Init();  
 
   /* USER CODE END 2 */
